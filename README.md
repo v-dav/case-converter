@@ -19,7 +19,7 @@ The Case Converter is a simple yet effective web application that allows users t
 - **Save Text as File**: Download the converted text as a `.txt` file for easy sharing or saving.
 
 ## Screenshot
-![chrome-capture-2024-8-21](https://github.com/user-attachments/assets/1f2b7698-dfe3-4309-bec4-3d3b30f0d5b3)
+![chrome-capture-2024-8-21](https://github.com/user-attachments/assets/b8f04e2b-a044-4d6f-a3e6-555baba939b6)
 
 
 ## Example Usage
