@@ -4,6 +4,8 @@
 ![CSS](https://img.shields.io/badge/CSS-3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
+![chrome-capture-2024-8-24](https://github.com/user-attachments/assets/8a2e41e0-2caf-4e36-9ea8-005dbca5f21f)
+
 ## Live [Here](https://v-dav.github.io/case-converter/)
 
 ## Project Description
