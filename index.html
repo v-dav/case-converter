@@ -1,167 +1,187 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <style>
-        /* General Styles */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Modern Case Converter</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #e0e0e0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: #333;
-}
+		:root {
+			--primary-color: #4a90e2;
+			--secondary-color: #f39c12;
+			--background-color: #f4f7f9;
+			--text-color: #333;
+			--button-hover: #3498db;
+		}
 
-/* Title Style */
-.title {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #2c3e50;
-    font-weight: 700;
-}
+		body {
+			font-family: 'Poppins', sans-serif;
+			background-color: var(--background-color);
+			margin: 0;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			color: var(--text-color);
+		}
 
-/* Textarea Style */
-textarea {
-    width: 100%;
-    max-width: 600px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1.1em;
-    margin-bottom: 25px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
+		.container {
+			width: 100%;
+			max-width: 600px;
+			background-color: #ffffff;
+			border-radius: 15px;
+			padding: 30px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		}
 
-textarea:focus {
-    outline: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+		.title {
+			font-size: clamp(1.5rem, 5vw, 2.5rem);
+			margin-bottom: 20px;
+			color: var(--primary-color);
+			font-weight: 700;
+			text-align: center;
+		}
 
-/* Button Styles */
-button {
-    padding: 12px 18px;
-    margin: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    flex: 1;
-    max-width: 150px;
-    text-align: center;
-}
+		textarea {
+			width: 100%;
+			border: 1px solid #e0e0e0;
+			border-radius: 8px;
+			font-size: 1rem;
+			margin-bottom: 20px;
+			background-color: #fff;
+			transition: border-color 0.3s ease;
+			resize: vertical;
+		}
 
-#upper-case, #lower-case, #proper-case, #sentence-case, #save-text-file {
-    background-color: #2980b9;
-    color: #fff;
-    font-weight: 500;
-}
+		textarea:focus {
+			outline: none;
+			border-color: var(--primary-color);
+		}
 
-#upper-case:hover, #lower-case:hover, #proper-case:hover, #sentence-case:hover, #save-text-file:hover {
-    background-color: #3498db;
-    transform: translateY(-2px);
-}
+		.button-container {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+			gap: 10px;
+		}
 
-#save-text-file {
-    background-color: #e67e22;
-}
+		button {
+			padding: 12px;
+			border: none;
+			border-radius: 8px;
+			font-size: 0.9rem;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			background-color: var(--primary-color);
+			color: #fff;
+			font-weight: 500;
+		}
 
-#save-text-file:hover {
-    background-color: #d35400;
-}
+		button:hover {
+			background-color: var(--button-hover);
+			transform: translateY(-2px);
+		}
 
-/* Button Container */
-.button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 600px;
-}
-    </style>
+		#save-text-file {
+			background-color: var(--secondary-color);
+		}
+
+		#save-text-file:hover {
+			background-color: #e67e22;
+		}
+
+		@media (max-width: 480px) {
+			.container {
+				padding: 20px;
+			}
+
+			button {
+				padding: 10px;
+				font-size: 0.8rem;
+			}
+		}
+	</style>
 </head>
+
 <body>
-<div class="title">Case Converter</div>
-<textarea id="textarea" cols="45" rows="15"></textarea>
-<div class="button-container">
-    <button id="upper-case">UPPER CASE</button>
-    <button id="lower-case">lower case</button>
-    <button id="proper-case">Proper Case</button>
-    <button id="sentence-case">Sentence case</button>
-    <button id="save-text-file">Save Text File</button>
-</div>
+	<div class="container">
+		<h1 class="title">Case Converter</h1>
+		<textarea id="textarea" rows="10" placeholder="Enter your text here..."></textarea>
+		<div class="button-container">
+			<button id="upper-case">UPPER CASE</button>
+			<button id="lower-case">lower case</button>
+			<button id="proper-case">Proper Case</button>
+			<button id="sentence-case">Sentence case</button>
+			<button id="save-text-file">Save Text File</button>
+		</div>
+	</div>
 </body>
 <script>
-    const upperCaseBtn = document.getElementById("upper-case");
-    const lowerCaseBtn = document.getElementById("lower-case");
-    const properCaseBtn = document.getElementById("proper-case");
-    const sentenceCaseBtn = document.getElementById("sentence-case");
-    const textArea = document.getElementById("textarea");
-    const saveFile = document.getElementById("save-text-file");
+	const upperCaseBtn = document.getElementById("upper-case");
+	const lowerCaseBtn = document.getElementById("lower-case");
+	const properCaseBtn = document.getElementById("proper-case");
+	const sentenceCaseBtn = document.getElementById("sentence-case");
+	const textArea = document.getElementById("textarea");
+	const saveFile = document.getElementById("save-text-file");
 
-    upperCaseBtn.addEventListener("click", () => {
-        const originalText = textArea.value;
-        if (!originalText) return;
+	upperCaseBtn.addEventListener("click", () => {
+		const originalText = textArea.value;
+		if (!originalText) return;
 
-        textArea.value = originalText.toUpperCase();
-    })
+		textArea.value = originalText.toUpperCase();
+	})
 
-    lowerCaseBtn.addEventListener("click", () => {
-        const originalText = textArea.value;
-        if (!originalText) return;
+	lowerCaseBtn.addEventListener("click", () => {
+		const originalText = textArea.value;
+		if (!originalText) return;
 
-        textArea.value = originalText.toLowerCase();
-    })
+		textArea.value = originalText.toLowerCase();
+	})
 
-    properCaseBtn.addEventListener("click", () => {
-        const originalText = textArea.value.trim();
-        if (!originalText) return;
+	properCaseBtn.addEventListener("click", () => {
+		const originalText = textArea.value.trim();
+		if (!originalText) return;
 
-        const wordsArray = originalText.split(" ");
-        if (wordsArray.length > 1) {
-            const upperWordsArray = wordsArray.map(word => word ? word[0].toUpperCase() + word.slice(1) : "");
-            textArea.value = upperWordsArray.join(" ");
-        } else {
-            textArea.value = originalText.charAt(0).toUpperCase() + originalText.slice(1);
-        }
-    })
+		const wordsArray = originalText.split(" ");
+		if (wordsArray.length > 1) {
+			const upperWordsArray = wordsArray.map(word => word ? word[0].toUpperCase() + word.slice(1) : "");
+			textArea.value = upperWordsArray.join(" ");
+		} else {
+			textArea.value = originalText.charAt(0).toUpperCase() + originalText.slice(1);
+		}
+	})
 
-    sentenceCaseBtn.addEventListener("click", () => {
-        let sentences = textArea.value.toLowerCase().split('. ');
-        let modifiedSentences = [];
-        for (let sentence of sentences) {
-            let modifiedSentence = sentence.charAt(0).toUpperCase().concat(sentence.slice(1));
-            modifiedSentences.push(modifiedSentence);
-        }
-        textArea.value = modifiedSentences.join('. ');
-    });
+	sentenceCaseBtn.addEventListener("click", () => {
+		let sentences = textArea.value.toLowerCase().split('. ');
+		let modifiedSentences = [];
+		for (let sentence of sentences) {
+			let modifiedSentence = sentence.charAt(0).toUpperCase().concat(sentence.slice(1));
+			modifiedSentences.push(modifiedSentence);
+		}
+		textArea.value = modifiedSentences.join('. ');
+	});
 
-    saveFile.addEventListener("click", () => {
-        const originalText = textArea.value;
-        if (!originalText) return;
+	saveFile.addEventListener("click", () => {
+		const originalText = textArea.value;
+		if (!originalText) return;
 
-        const blob = new Blob([originalText], {type: "text/plain"});
+		const blob = new Blob([originalText], { type: "text/plain" });
 
-        // Step 3: Create a link element
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        console.log(link.href);
-        link.download = "text.txt"; // Set the name of the file
+		// Step 3: Create a link element
+		const link = document.createElement("a");
+		link.href = URL.createObjectURL(blob);
+		console.log(link.href);
+		link.download = "text.txt"; // Set the name of the file
 
-        // Step 4: Trigger the download
-        link.click();
+		// Step 4: Trigger the download
+		link.click();
 
-        // Optional: Clean up the URL object after download
-        URL.revokeObjectURL(link.href);
-    })
+		// Optional: Clean up the URL object after download
+		URL.revokeObjectURL(link.href);
+	})
 </script>
+
 </html>
